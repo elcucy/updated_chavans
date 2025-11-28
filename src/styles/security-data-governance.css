@@ -1,0 +1,165 @@
+
+/* Scoped variables for Data Governance page */
+.ssp-page-dgc {
+    --ssp-accent: #6366f1; /* Indigo-500 */
+    --ssp-accent-rgb: 99, 102, 241;
+}
+
+/* Hero overrides to ensure text visibility on white background if canvas fails or is subtle */
+.ssp-page-dgc .ssp-hero {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+.ssp-page-dgc .ssp-hero h1,
+.ssp-page-dgc .ssp-hero .ssp-intro {
+    color: var(--fg);
+}
+
+/* Timeline container */
+.dgc-timeline-container {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px 0 40px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dgc-timeline-track {
+    display: flex;
+    gap: 24px;
+    min-width: 100%;
+    padding: 0 10px;
+}
+
+/* Timeline Cards */
+.dgc-timeline-card {
+    flex: 0 0 300px;
+    background: var(--ssp-card-bg);
+    border: 1px solid var(--ssp-border);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+}
+
+.dgc-timeline-card:hover,
+.dgc-timeline-card:focus {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--ssp-accent);
+    box-shadow: 0 10px 30px -10px rgba(var(--ssp-accent-rgb), 0.3);
+    outline: none;
+}
+
+.dgc-step-badge {
+    background: var(--ssp-accent);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dgc-timeline-card h3 {
+    font-size: 1.2rem;
+    margin: 0 0 12px;
+    color: var(--ssp-heading);
+    font-weight: 600;
+}
+
+.dgc-timeline-card p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--ssp-text);
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Table Styles */
+.ssp-table {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  border: 1px solid var(--ssp-border);
+  border-radius: 12px;
+  background: var(--ssp-card-bg);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.ssp-table-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px 24px;
+  font-weight: 700;
+  color: var(--ssp-heading);
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--ssp-border);
+  text-align: left;
+}
+
+.ssp-table-cell {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--ssp-border);
+  color: var(--ssp-text);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ssp-table-cell.title {
+  color: var(--ssp-heading);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ssp-table-cell:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .dgc-timeline-track {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .dgc-timeline-card {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+    .dgc-timeline-container {
+        overflow-x: visible;
+        padding: 0;
+    }
+
+    .ssp-table {
+        grid-template-columns: 1fr;
+    }
+    .ssp-table-header {
+        display: none;
+    }
+    .ssp-table-cell {
+        padding: 12px 20px;
+        border-bottom: none;
+    }
+    .ssp-table-cell.title {
+        padding-top: 24px;
+        padding-bottom: 4px;
+        font-size: 1.1rem;
+        color: var(--ssp-accent);
+        background: transparent;
+    }
+    .ssp-table-cell:not(.title) {
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--ssp-border);
+    }
+    .ssp-table-cell:last-child {
+        border-bottom: none;
+    }
+}

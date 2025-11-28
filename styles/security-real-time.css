@@ -1,0 +1,91 @@
+
+.ssp-page-rttd {
+    --ssp-accent: #ef4444; /* Red-500 for threat detection accent */
+    --ssp-accent-rgb: 239, 68, 68;
+}
+
+/* Hero Override to match other Edge pages (Light Hero) */
+.ssp-page-rttd .ssp-hero {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.ssp-page-rttd .ssp-hero h1 {
+    color: var(--fg);
+    text-shadow: none;
+}
+
+.ssp-page-rttd .ssp-hero .ssp-intro {
+    color: var(--fg);
+}
+
+/* Table Styles for What We Cover */
+.ssp-table {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  border: 1px solid var(--ssp-border);
+  border-radius: 12px;
+  background: var(--ssp-card-bg);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.ssp-table-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 18px 24px;
+  font-weight: 700;
+  color: var(--ssp-heading);
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--ssp-border);
+  text-align: left;
+}
+
+.ssp-table-cell {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--ssp-border);
+  color: var(--ssp-text);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ssp-table-cell.title {
+  color: var(--ssp-heading);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Remove bottom border for last row elements (2 columns) */
+.ssp-table-cell:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+/* Responsive for mobile - Stack table rows */
+@media (max-width: 768px) {
+  .ssp-table {
+    grid-template-columns: 1fr;
+  }
+  .ssp-table-header {
+    display: none;
+  }
+  .ssp-table-cell {
+    padding: 12px 20px;
+    border-bottom: none;
+  }
+  .ssp-table-cell.title {
+    padding-top: 24px;
+    padding-bottom: 4px;
+    font-size: 1.1rem;
+    color: var(--ssp-accent);
+    background: transparent;
+  }
+  .ssp-table-cell:not(.title) {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ssp-border);
+  }
+  .ssp-table-cell:last-child {
+      border-bottom: none;
+  }
+}

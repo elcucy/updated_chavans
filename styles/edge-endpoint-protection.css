@@ -1,0 +1,273 @@
+
+/* Scoped variables for Endpoint Protection page */
+.ssp-page-epp {
+    --ssp-accent: #3b82f6; /* Blue-500 */
+    --ssp-accent-rgb: 59, 130, 246;
+    --epp-card-bg: rgba(16, 22, 43, 0.6);
+    --epp-border: rgba(59, 130, 246, 0.2);
+}
+
+/* Hero Grid Layout */
+.epp-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    min-height: 480px;
+    text-align: left;
+}
+
+.epp-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.epp-lead {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    margin: 0;
+    text-align: left;
+    max-width: 600px;
+}
+
+.epp-hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.epp-svg-visual {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.15));
+}
+
+/* Timeline Styles */
+.epp-timeline-container {
+    overflow-x: auto;
+    padding: 20px 4px 40px;
+}
+
+.epp-timeline-track {
+    display: flex;
+    gap: 24px;
+    min-width: 100%;
+    padding-bottom: 10px;
+}
+
+.epp-timeline-card {
+    flex: 0 0 280px;
+    background: var(--epp-card-bg);
+    border: 1px solid var(--epp-border);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.epp-timeline-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--ssp-accent);
+    box-shadow: 0 10px 30px -10px rgba(var(--ssp-accent-rgb), 0.3);
+}
+
+.epp-step-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.epp-timeline-card h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 0 10px;
+}
+
+.epp-timeline-card p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Accordion Styles */
+.epp-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+.epp-accordion-item {
+    background: var(--epp-card-bg);
+    border: 1px solid var(--epp-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.epp-accordion-item.active {
+    border-color: var(--ssp-accent);
+    background: rgba(16, 22, 43, 0.8);
+}
+
+.epp-accordion-header {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.epp-accordion-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.epp-accordion-icon {
+    color: var(--ssp-accent);
+    transition: transform 0.3s ease;
+}
+
+.epp-accordion-item.active .epp-accordion-icon {
+    transform: rotate(180deg);
+}
+
+.epp-accordion-content {
+    height: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.epp-accordion-item.active .epp-accordion-content {
+    height: auto;
+    padding-bottom: 24px;
+    opacity: 1;
+}
+
+.epp-accordion-content p {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0 0 12px;
+}
+
+.epp-value-tag {
+    font-size: 0.9rem;
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.1);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+/* Architecture Flow */
+.epp-arch-flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.arch-step {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.arch-arrow {
+    color: var(--ssp-accent);
+    font-size: 1.2rem;
+}
+
+/* CTA Buttons */
+.epp-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.epp-cta-group .btn {
+    margin-top: 0;
+}
+
+.epp-cta-group .btn.primary {
+    background: var(--ssp-accent);
+    color: #fff;
+    border: 1px solid var(--ssp-accent);
+}
+
+.epp-cta-group .btn.primary:hover {
+    background: #2563eb;
+}
+
+.epp-cta-group .btn.secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.epp-cta-group .btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .epp-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .epp-lead {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .epp-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .epp-timeline-track {
+        flex-direction: column;
+        align-items: center;
+    }
+    .epp-timeline-card {
+        width: 100%;
+        flex: auto;
+    }
+    .arch-arrow {
+        transform: rotate(90deg);
+    }
+    .epp-arch-flow {
+        flex-direction: column;
+    }
+}

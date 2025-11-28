@@ -1,0 +1,349 @@
+
+
+/* === START: Shared Security Page (SSP) Visual System === */
+
+/* --- Page Variables & Base --- */
+.ssp-page {
+  --ssp-bg: #0A0F1E;
+  --ssp-text: #BCC5E8;
+  --ssp-heading: #FFFFFF;
+  --ssp-border: rgba(255, 255, 255, 0.1);
+  --ssp-card-bg: rgba(16, 22, 43, 0.7);
+  --ssp-accent: #3b82f6; /* Default accent, overridden by modifiers */
+  --ssp-accent-rgb: 59, 130, 246;
+
+  background-color: var(--ssp-bg);
+  color: var(--ssp-text);
+  overflow-x: hidden;
+  position: relative; /* For canvas positioning */
+}
+
+/* Accent color modifiers */
+.ssp-page-epp { --ssp-accent: #3b82f6; --ssp-accent-rgb: 59, 130, 246; }
+.ssp-page-zta { --ssp-accent: #8b5cf6; --ssp-accent-rgb: 139, 92, 246; }
+
+.ssp-page main,
+.ssp-page header {
+  position: relative;
+  z-index: 1; /* Content above canvas */
+}
+
+.canvas-background {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* --- Hero Section --- */
+.ssp-hero {
+  min-height: 450px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 100px 20px;
+  border-bottom: 1px solid var(--ssp-border);
+  position: relative;
+}
+.ssp-hero-icon-wrapper {
+  width: 50px; height: 50px; color: var(--ssp-accent); margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 15px rgba(var(--ssp-accent-rgb), 0.5));
+}
+.ssp-hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--ssp-heading);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+.ssp-intro {
+  font-size: 1.15rem;
+  color: var(--ssp-text);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* --- General Section Styling --- */
+.ssp-section { padding: 100px 0; border-bottom: 1px solid var(--ssp-border); position: relative; }
+.ssp-section:last-of-type { border-bottom: none; }
+
+.ssp-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ssp-heading);
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+.ssp-section > .container > p {
+  font-size: 1.1rem;
+  color: var(--ssp-text);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: center;
+}
+.ssp-divider {
+    height: 1px;
+    width: 80px;
+    background: var(--ssp-accent);
+    margin: 1.5rem auto 2.5rem;
+    box-shadow: 0 0 15px rgba(var(--ssp-accent-rgb), 0.4);
+}
+
+/* --- "What We Cover" Card Grid --- */
+.ssp-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 3.5rem;
+}
+.ssp-card {
+  background: var(--ssp-card-bg);
+  border: 1px solid var(--ssp-border);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.ssp-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(var(--ssp-accent-rgb), 0.5);
+}
+.ssp-card-icon {
+  color: var(--ssp-accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.ssp-card-icon svg { width: 28px; height: 28px; }
+.ssp-card-content { display: flex; flex-direction: column; }
+.ssp-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+  color: var(--ssp-heading);
+  font-weight: 600;
+}
+.ssp-card p {
+  font-size: 1rem;
+  margin: 0;
+  text-align: left;
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+/* --- "Our Proven Process" Grid --- */
+.ssp-process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 3.5rem;
+    text-align: left;
+}
+.ssp-process-card {
+    background: var(--ssp-card-bg);
+    border: 1px solid var(--ssp-border);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    padding-left: 50px;
+}
+.ssp-process-step-number {
+    position: absolute;
+    left: 16px;
+    top: 24px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--ssp-accent);
+    color: var(--ssp-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.ssp-process-card h3 {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    color: var(--ssp-heading);
+    font-weight: 600;
+}
+.ssp-process-card p {
+    font-size: 1rem;
+    margin: 0;
+    text-align: left;
+    max-width: 100%;
+    line-height: 1.6;
+}
+
+/* --- Case Studies Grid --- */
+.ssp-case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 2rem;
+}
+.ssp-case-study-card {
+    background: var(--ssp-card-bg);
+    border: 1px solid var(--ssp-border);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+    text-decoration: none;
+    color: var(--ssp-text);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.ssp-case-study-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(var(--ssp-accent-rgb), 0.5);
+}
+.ssp-case-study-card h3 {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    color: var(--ssp-heading);
+    font-weight: 600;
+}
+.ssp-case-study-card p {
+    flex-grow: 1;
+    margin: 0 0 1rem;
+    text-align: left;
+    max-width: 100%;
+    line-height: 1.6;
+}
+.ssp-case-study-card span {
+    font-weight: 600;
+    color: var(--ssp-accent);
+    align-self: flex-start;
+}
+
+/* --- Architecture Diagram --- */
+.ssp-arch-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-top: 3.5rem;
+  --animation-delay: 0s;
+}
+@keyframes pulse-in {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.ssp-arch-item {
+  background: var(--ssp-card-bg);
+  border: 1px solid var(--ssp-border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ssp-text);
+  opacity: 0;
+  animation: pulse-in 0.5s ease-out forwards;
+  text-transform: capitalize;
+}
+.ssp-arch-arrow {
+  color: var(--ssp-accent);
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: pulse-in 0.5s ease-out forwards;
+}
+/* Staggered animation delays */
+.ssp-arch-diagram > *:nth-child(1) { animation-delay: 0.1s; }
+.ssp-arch-diagram > *:nth-child(2) { animation-delay: 0.3s; }
+.ssp-arch-diagram > *:nth-child(3) { animation-delay: 0.5s; }
+.ssp-arch-diagram > *:nth-child(4) { animation-delay: 0.7s; }
+.ssp-arch-diagram > *:nth-child(5) { animation-delay: 0.9s; }
+.ssp-arch-diagram > *:nth-child(6) { animation-delay: 1.1s; }
+.ssp-arch-diagram > *:nth-child(7) { animation-delay: 1.3s; }
+.ssp-arch-diagram > *:nth-child(8) { animation-delay: 1.5s; }
+.ssp-arch-diagram > *:nth-child(9) { animation-delay: 1.7s; }
+.ssp-arch-diagram > *:nth-child(10) { animation-delay: 1.9s; }
+.ssp-arch-diagram > *:nth-child(11) { animation-delay: 2.1s; }
+.ssp-arch-diagram > *:nth-child(12) { animation-delay: 2.3s; }
+.ssp-arch-diagram > *:nth-child(13) { animation-delay: 2.5s; }
+.ssp-arch-diagram > *:nth-child(14) { animation-delay: 2.7s; }
+.ssp-arch-diagram > *:nth-child(15) { animation-delay: 2.9s; }
+
+.ssp-arch-caption {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #8892b0;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Discover More & CTA --- */
+.ssp-discover-container { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+.ssp-discover-btn {
+  padding: 12px 24px; font-size: 1rem; font-weight: 600;
+  background: transparent;
+  border: 1px solid var(--ssp-border);
+  color: var(--ssp-heading);
+  transition: all 0.2s ease;
+  border-radius: 8px; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+}
+.ssp-discover-btn:hover {
+  background-color: var(--ssp-accent);
+  border-color: var(--ssp-accent);
+  color: var(--ssp-heading);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(var(--ssp-accent-rgb), 0.3);
+}
+.ssp-discover-btn span { transition: transform 0.2s ease; }
+.ssp-discover-btn:hover span { transform: translateX(4px); }
+
+.ssp-cta-section { padding: 100px 20px; text-align: center; background: none; }
+.ssp-cta-section .btn {
+  margin-top: 1.5rem; padding: 14px 32px; font-size: 1rem; font-weight: 700;
+  background: var(--ssp-accent); color: var(--ssp-heading); border: 1px solid var(--ssp-accent);
+  transition: all 0.2s ease; border-radius: 8px; cursor: pointer;
+  box-shadow: 0 0 25px rgba(var(--ssp-accent-rgb), 0.4);
+}
+.ssp-cta-section .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(var(--ssp-accent-rgb), 0.6);
+}
+
+/* --- Animations & Responsive --- */
+.fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section { transition: none; opacity: 1; transform: translateY(0); }
+  .ssp-card:hover, .ssp-discover-btn:hover, .ssp-cta-section .btn:hover { transform: none; box-shadow: none; }
+  .ssp-arch-item, .ssp-arch-arrow { animation: none; opacity: 1; }
+}
+@media (max-width: 768px) {
+  .ssp-hero h1 { font-size: 2.5rem; }
+  .ssp-section h2 { font-size: 2.2rem; }
+  .ssp-card-grid { grid-template-columns: 1fr; }
+  .ssp-arch-diagram { flex-direction: column; }
+  .ssp-arch-arrow { transform: rotate(90deg); }
+}
+
+/* Overrides for Security page heroes based on user feedback */
+.ssp-page-epp .ssp-hero,
+.ssp-page-zta .ssp-hero {
+  background-color: #fff;
+  border-bottom-color: #eee;
+}
+.ssp-page-epp .ssp-hero h1,
+.ssp-page-epp .ssp-hero .ssp-intro,
+.ssp-page-zta .ssp-hero h1,
+.ssp-page-zta .ssp-hero .ssp-intro {
+  color: var(--fg);
+}
